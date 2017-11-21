@@ -158,7 +158,6 @@ public class Mainframe extends JFrame implements ActionListener {
         main.removeAll();
         main.repaint();
         main.validate();
-    JPanel mainPnl;
     JPanel topPnl;
     JPanel bottomPnl;
     JPanel centerPnl;
