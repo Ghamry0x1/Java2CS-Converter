@@ -206,10 +206,19 @@ public class Mainframe extends JFrame implements ActionListener {
         
         //adding to centerBottom
         centerBottomPnl.add(convertBtn);
+        centerPnl.setOpaque(false);
         
         //styling
         javaArea.setLineWrap(true);
         csArea.setEditable(false);
+        topPnl.setOpaque(false);
+        centerCenterPnl.setOpaque(false);
+        centerCenterCenterPnl.setOpaque(false);
+        centerCenterTopPnl.setOpaque(false);
+        centerBottomPnl.setOpaque(false);
+        titleTxt.setForeground(Color.white);
+        javaTxt.setForeground(Color.white);
+        csTxt.setForeground(Color.white);
     
         main.repaint();
         main.validate();
