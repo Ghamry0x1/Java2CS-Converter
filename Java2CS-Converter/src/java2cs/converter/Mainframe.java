@@ -2,7 +2,6 @@ package java2cs.converter;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -202,13 +201,14 @@ public class Mainframe extends JFrame implements ActionListener {
         //adding to centerCenters
         centerCenterTopPnl.add(javaTxt);
         centerCenterTopPnl.add(csTxt);
-        centerCenterCenterPnl.add(javaArea);
-        centerCenterCenterPnl.add(csArea);
+        centerCenterCenterPnl.add(javaScrollpane);
+        centerCenterCenterPnl.add(csScrollpane);
         
         //adding to centerBottom
         centerBottomPnl.add(convertBtn);
         
         //styling
+        javaArea.setLineWrap(true);
         csArea.setEditable(false);
     
         main.repaint();
