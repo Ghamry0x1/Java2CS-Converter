@@ -9,7 +9,7 @@ public class Java2CSConverter {
         
         Mainframe mf = new Mainframe();
         mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mf.setBounds(300, 10, 646, 500);
+        mf.setBounds(300, 10, 645, 500);
         mf.setResizable(false);
         mf.setVisible(true);
         
