@@ -1,34 +1,62 @@
-
 package java2cs.converter;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 public class Mainframe extends JFrame implements ActionListener {
-    private final JMenuBar mnuBar = new JMenuBar();
-    private final JMenu mnuF = new JMenu("File");
-    private final JMenu mnuH = new JMenu("Help");
-    private final JMenu mnuC = new JMenu("Credits");
-    private final JMenuItem itmC = new JMenuItem("Class");
-    private final JMenuItem itmS = new JMenuItem("String");
-    private final JMenuItem itmy = new JMenuItem("Youssef Khaled");
-    private final JMenuItem itmm = new JMenuItem("Mohamed El Ghamry");
-    private final JMenuItem itmma = new JMenuItem("Mariam Ahmed");
-    private final JMenuItem itma = new JMenuItem("Ali Mohamed Ali");
-    private final JMenuItem itmay = new JMenuItem("Aya Mohamed Samir");
-    private final JMenuItem itmh = new JMenuItem("Mostafa Hazem");
-    public static JPanel main =new JPanel() ;
-    public static JPanel bottompanel = new JPanel();
+    private JMenuBar mnuBar = new JMenuBar();
+    private JMenu mnuF = new JMenu("File");
+    private JMenu mnuH = new JMenu("Help");
+    private JMenu mnuC = new JMenu("Credits");
+    private JMenuItem itmC = new JMenuItem("Class");
+    private JMenuItem itmS = new JMenuItem("String");
+    private JMenuItem itmy = new JMenuItem("Youssef Khaled");
+    private JMenuItem itmm = new JMenuItem("Mohamed El Ghamry");
+    private JMenuItem itmma = new JMenuItem("Mariam Ahmed");
+    private JMenuItem itma = new JMenuItem("Ali Mohamed Ali");
+    private JMenuItem itmay = new JMenuItem("Aya Mohamed Samir");
+    private JMenuItem itmh = new JMenuItem("Mostafa Hazem");
     private JButton b1 = new JButton("Convert Class");
     private JButton b2 = new JButton("Convert String");
     private JButton back = new JButton("back");   
-    private JButton back2 = new JButton("back");   
-        
-        
-    public static JTextArea area2 = new JTextArea("Disclamer");
+    private JButton back2 = new JButton("back");
+    private JPanel main =new JPanel();
+    private JPanel bottomPnl = new JPanel();
+    private JTextArea area2 = new JTextArea("Disclamer");
+    
+    private JPanel topPnl;
+    private JPanel centerPnl;
+    private JPanel centerBottomPnl;
+    //private JPanel centerEastPnl;
+    //private JPanel centerWestPnl;
+    private JPanel centerCenterPnl;
+    private JLabel titleTxt;
+    private JLabel javaTxt;
+    private JLabel csTxt;
+    private JTextArea javaArea;
+    private JTextArea csArea;
+    private JButton convertBtn;
+    private JScrollPane javaScrollpane;
+    private JScrollPane csScrollpane;
+    private JPanel centerCenterCenterPnl;
+    private JPanel centerCenterTopPnl;
+    
     public Mainframe(){
         main.setBorder(new EmptyBorder(15,20,15,20));
         this.add(main);
@@ -61,29 +89,27 @@ public class Mainframe extends JFrame implements ActionListener {
         JCheckBox box = new JCheckBox("Sounds");
         JPanel convertpanel = new JPanel();
         JTextArea area = new JTextArea("About program\n asdaasdasd\n sdaasdasd");
-//        JPanel imagepanel = new JPanel();
         this.setTitle("Main Menu");
         main.setLayout(new BorderLayout());
         main.add(area,BorderLayout.NORTH);
         main.add(centerpanel,BorderLayout.CENTER);
-        main.add(bottompanel,BorderLayout.SOUTH);
+        main.add(bottomPnl,BorderLayout.SOUTH);
         centerpanel.setLayout(null);
-//        centerpanel.add(imagepanel);
         centerpanel.add(b1);
         centerpanel.add(b2);
         main.setBackground(Color.black);
         b1.setBounds(400, 120, 150, 30);
         b2.setBounds(400, 220, 150, 30);
-        bottompanel.setLayout(new BorderLayout());
-        bottompanel.add(box,BorderLayout.WEST);
-        bottompanel.add(area2,BorderLayout.EAST);
+        bottomPnl.setLayout(new BorderLayout());
+        bottomPnl.add(box,BorderLayout.WEST);
+        bottomPnl.add(area2,BorderLayout.EAST);
         area.setEditable(false);
         area2.setEditable(false);
         //trasparent
         area.setOpaque(false);
         area2.setOpaque(false);
         centerpanel.setOpaque(false);
-        bottompanel.setOpaque(false);
+        bottomPnl.setOpaque(false);
         box.setOpaque(false);
         //text color
         area.setForeground(Color.white);
@@ -94,28 +120,8 @@ public class Mainframe extends JFrame implements ActionListener {
         main.repaint();
         main.validate();
     }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        Object o = e.getSource();
-        if(o==b1){
-            Class();
-        }
-        else if(o==back){
-            bottompanel.remove(back);
-            bottompanel.add(area2,BorderLayout.EAST);
-            Mainmenu();
-        }
-        else if(o==back2){
-            bottompanel.remove(back2);
-            bottompanel.add(area2,BorderLayout.EAST);
-            Mainmenu();
-        }
-        else if(o==b2){
-            String();
-        }
-    }
-    public void Class(){
+    
+    public void ClassConverter(){
         main.removeAll();
         main.repaint();
         main.validate();
@@ -126,9 +132,9 @@ public class Mainframe extends JFrame implements ActionListener {
         JPanel center = new JPanel();
         main.setLayout(new BorderLayout());
         main.add(area,BorderLayout.NORTH);
-        main.add(bottompanel,BorderLayout.SOUTH);
+        main.add(bottomPnl,BorderLayout.SOUTH);
         main.add(center);
-         center.setLayout(new GridLayout(3,0));
+        center.setLayout(new GridLayout(3,0));
         center.add(p1);
         center.add(p2);
         center.add(p3);
@@ -148,80 +154,86 @@ public class Mainframe extends JFrame implements ActionListener {
         JButton b3 = new JButton("Convert");
         p3.add(b3);
         b3.setBounds(300, 10, 100, 20);
-        bottompanel.remove(area2);
-        bottompanel.add(back,BorderLayout.EAST);
+        bottomPnl.remove(area2);
+        bottomPnl.add(back,BorderLayout.EAST);
         main.repaint();
         main.validate();
     }
     
-    public void String(){
+    public void StringConverter(){
         main.removeAll();
         main.repaint();
         main.validate();
-    JPanel topPnl;
-    JPanel bottomPnl;
-    JPanel centerPnl;
-    JPanel centerTopPnl;
-    JPanel centerBottomPnl;
-    JPanel centerCenterPnl;
-    JTextField titleTxt;
-    JTextField javaTxt;
-    JTextField csTxt;
-    JTextArea javaArea;
-    JTextArea csArea;
-    JButton convertBtn;
-    JButton backBtn;
-    JScrollPane javaScrollpane;
-    JScrollPane csScrollpane;
-        topPnl = new JPanel(); //flow
-        bottomPnl = new JPanel(); //flow
-        centerPnl = new JPanel(new BorderLayout()); //border        
-        centerTopPnl = new JPanel(); //null
-        centerTopPnl.setLayout(null);
-        centerBottomPnl = new JPanel(); //flow
-        centerCenterPnl = new JPanel(new GridLayout(0, 2)); //grid
-
-        titleTxt = new JTextField("Title");
-        javaTxt = new JTextField("Java");
-        csTxt = new JTextField("C#");
+        
+        topPnl = new JPanel();
+        centerPnl = new JPanel(new BorderLayout());
+        centerBottomPnl = new JPanel();
+        centerCenterPnl = new JPanel(new BorderLayout());
+        centerCenterCenterPnl = new JPanel(new GridLayout(0, 2, 10, 0));
+        centerCenterTopPnl = new JPanel(new GridLayout(0, 2, 10, 0));
+        titleTxt = new JLabel("Title");
+        javaTxt = new JLabel("Java");
+        csTxt = new JLabel("C#");
         javaArea = new JTextArea("Enter here your java code to be converted to C#");
         csArea = new JTextArea("C# code appears here");
         convertBtn = new JButton("Convert");
-        backBtn = new JButton("Back");
         javaScrollpane = new JScrollPane(javaArea);
         csScrollpane = new JScrollPane(csArea);
-
+        
         //adding to mainPnl
         main.add(topPnl, BorderLayout.NORTH);
-        main.add(bottompanel, BorderLayout.SOUTH);
+        main.add(bottomPnl, BorderLayout.SOUTH);
         main.add(centerPnl, BorderLayout.CENTER);
-        bottompanel.remove(area2);
-        bottompanel.add(back2,BorderLayout.EAST);
+        
         //adding to topPnl
         topPnl.add(titleTxt);
         
-        //adding to centerTopPnl
-        centerTopPnl.add(javaTxt);
-        centerTopPnl.add(csTxt);
+        //adding to bottomPnl
+        bottomPnl.remove(area2);
+        bottomPnl.add(back2,BorderLayout.EAST);
         
-        //adding to centerCenterPnl
-        centerCenterPnl.add(javaArea);
-        centerCenterPnl.add(csArea);
+        centerCenterPnl.add(centerCenterTopPnl, BorderLayout.NORTH);
+        centerCenterPnl.add(centerCenterCenterPnl, BorderLayout.CENTER);
+        
+        //adding to centerPnl
+        centerPnl.add(centerCenterPnl, BorderLayout.CENTER);
+        centerPnl.add(centerBottomPnl, BorderLayout.SOUTH);
+        
+        //adding to centerCenters
+        centerCenterTopPnl.add(javaTxt);
+        centerCenterTopPnl.add(csTxt);
+        centerCenterCenterPnl.add(javaArea);
+        centerCenterCenterPnl.add(csArea);
         
         //adding to centerBottom
         centerBottomPnl.add(convertBtn);
         
         //styling
-        titleTxt.setEditable(false);
-        javaTxt.setEditable(false);
-        csTxt.setEditable(false);
         csArea.setEditable(false);
+    
         main.repaint();
         main.validate();
-
     }
     
-    
-    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object o = e.getSource();
+        if(o==b1){
+            ClassConverter();
+        }
+        else if(o==back){
+            bottomPnl.remove(back);
+            bottomPnl.add(area2,BorderLayout.EAST);
+            Mainmenu();
+        }
+        else if(o==back2){
+            bottomPnl.remove(back2);
+            bottomPnl.add(area2,BorderLayout.EAST);
+            Mainmenu();
+        }
+        else if(o==b2){
+            StringConverter();
+        }
+    }
     
 }
