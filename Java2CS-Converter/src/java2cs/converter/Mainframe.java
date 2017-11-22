@@ -37,13 +37,13 @@ public class Mainframe extends JFrame implements ActionListener {
     private JButton back2 = new JButton("back");
     private JPanel main =new JPanel();
     private JPanel bottomPnl = new JPanel();
-    private JTextArea area2 = new JTextArea("Disclamer");
+    private JTextArea area2 = new JTextArea("This disclaimer informs users that"
+            + " the views, thoughts, and\nopinions expressed in the app belong "
+            + "solely to iONEX Group.");
     
     private JPanel topPnl;
     private JPanel centerPnl;
     private JPanel centerBottomPnl;
-    //private JPanel centerEastPnl;
-    //private JPanel centerWestPnl;
     private JPanel centerCenterPnl;
     private JLabel titleTxt;
     private JLabel javaTxt;
@@ -87,7 +87,7 @@ public class Mainframe extends JFrame implements ActionListener {
         JPanel centerpanel = new JPanel();
         JCheckBox box = new JCheckBox("Sounds");
         JPanel convertpanel = new JPanel();
-        JTextArea area = new JTextArea("About program\n asdaasdasd\n sdaasdasd");
+        JTextArea area = new JTextArea("J2CS Converter is a Windows program which accurately converts Java code to C#. It makes it possible\nto translate java class/string into Visual Studio C# class/string.");
         this.setTitle("Main Menu");
         main.setLayout(new BorderLayout());
         main.add(area,BorderLayout.NORTH);
@@ -124,25 +124,32 @@ public class Mainframe extends JFrame implements ActionListener {
         main.removeAll();
         main.repaint();
         main.validate();
-        JTextArea area = new JTextArea("Title");
+        
+        JLabel area = new JLabel("Class Translator");
         JPanel p1 = new JPanel();
         JPanel p2 = new JPanel();
         JPanel p3 = new JPanel();
-        JPanel center = new JPanel();
+        JPanel center = new JPanel(new GridLayout(3,0));
+        JLabel a1 = new JLabel("Source :");
+        JLabel a2 = new JLabel("Distination :");
+        JTextField path1 = new JTextField("c/:");
+        JTextField path2 = new JTextField("c/:");
+        JButton b1 = new JButton("Select");
+        JButton b2 = new JButton("Set");
+        
         main.setLayout(new BorderLayout());
+        
+        //adding to main
         main.add(area,BorderLayout.NORTH);
         main.add(bottomPnl,BorderLayout.SOUTH);
         main.add(center);
-        center.setLayout(new GridLayout(3,0));
+        
+        //adding to center
         center.add(p1);
         center.add(p2);
         center.add(p3);
-        JTextArea a1 = new JTextArea("Source :");
-        JTextArea a2 = new JTextArea("Distination :");
-        JTextArea path1 = new JTextArea("c/:");
-        JTextArea path2 = new JTextArea("c/:");
-        JButton b1 = new JButton("Select");
-        JButton b2 = new JButton("Set");
+        
+        //adding to panels
         p1.add(a1);
         p1.add(path1);
         p1.add(b1);
@@ -155,6 +162,7 @@ public class Mainframe extends JFrame implements ActionListener {
         b3.setBounds(300, 10, 100, 20);
         bottomPnl.remove(area2);
         bottomPnl.add(back,BorderLayout.EAST);
+        
         main.repaint();
         main.validate();
     }
@@ -170,7 +178,7 @@ public class Mainframe extends JFrame implements ActionListener {
         centerCenterPnl = new JPanel(new BorderLayout());
         centerCenterCenterPnl = new JPanel(new GridLayout(0, 2, 10, 0));
         centerCenterTopPnl = new JPanel(new GridLayout(0, 2, 10, 0));
-        titleTxt = new JLabel("Title");
+        titleTxt = new JLabel("Snippet Translator");
         javaTxt = new JLabel("Java");
         csTxt = new JLabel("C#");
         javaArea = new JTextArea("Enter here your java code to be converted to C#");
