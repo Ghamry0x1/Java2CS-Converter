@@ -86,9 +86,8 @@ public class Mainframe extends JFrame implements ActionListener {
         b2.addActionListener(this);
         JPanel centerpanel = new JPanel();
         JCheckBox box = new JCheckBox("Sounds");
-        JPanel convertpanel = new JPanel();
         JTextArea area = new JTextArea("J2CS Converter is a Windows program which accurately converts Java code to C#. It makes it possible\nto translate java class/string into Visual Studio C# class/string.");
-        this.setTitle("Main Menu");
+        this.setTitle("J2CS Converter");
         main.setLayout(new BorderLayout());
         main.add(area,BorderLayout.NORTH);
         main.add(centerpanel,BorderLayout.CENTER);
@@ -96,26 +95,30 @@ public class Mainframe extends JFrame implements ActionListener {
         centerpanel.setLayout(null);
         centerpanel.add(b1);
         centerpanel.add(b2);
-        main.setBackground(Color.black);
         b1.setBounds(400, 120, 150, 30);
         b2.setBounds(400, 220, 150, 30);
+        
         bottomPnl.setLayout(new BorderLayout());
         bottomPnl.add(box,BorderLayout.WEST);
         bottomPnl.add(area2,BorderLayout.EAST);
+        
+        //styling
         area.setEditable(false);
         area2.setEditable(false);
-        //trasparent
         area.setOpaque(false);
         area2.setOpaque(false);
         centerpanel.setOpaque(false);
         bottomPnl.setOpaque(false);
         box.setOpaque(false);
-        //text color
+        main.setBackground(Color.black);
         area.setForeground(Color.white);
         area2.setForeground(Color.white);
         box.setForeground(Color.white);
+        
+        //adding actionListeners
         back.addActionListener(this);
         back2.addActionListener(this);
+        
         main.repaint();
         main.validate();
     }
@@ -126,8 +129,8 @@ public class Mainframe extends JFrame implements ActionListener {
         main.validate();
         
         JLabel area = new JLabel("Class Translator");
-        JPanel p1 = new JPanel();
-        JPanel p2 = new JPanel();
+        JPanel p1 = new JPanel(); //a1 - path1 - b1
+        JPanel p2 = new JPanel(); //a2 - path2 - b2
         JPanel p3 = new JPanel();
         JPanel center = new JPanel(new GridLayout(3,0));
         JLabel a1 = new JLabel("Source :");
@@ -142,7 +145,7 @@ public class Mainframe extends JFrame implements ActionListener {
         //adding to main
         main.add(area,BorderLayout.NORTH);
         main.add(bottomPnl,BorderLayout.SOUTH);
-        main.add(center);
+        main.add(center, BorderLayout.CENTER);
         
         //adding to center
         center.add(p1);
@@ -160,8 +163,19 @@ public class Mainframe extends JFrame implements ActionListener {
         JButton b3 = new JButton("Convert");
         p3.add(b3);
         b3.setBounds(300, 10, 100, 20);
+        
+        //adding bottom
         bottomPnl.remove(area2);
         bottomPnl.add(back,BorderLayout.EAST);
+        
+        //styling
+        area.setForeground(Color.WHITE);
+        center.setOpaque(false);
+        p1.setOpaque(false);
+        p2.setOpaque(false);
+        p3.setOpaque(false);
+        a1.setForeground(Color.WHITE);
+        a2.setForeground(Color.WHITE);
         
         main.repaint();
         main.validate();
