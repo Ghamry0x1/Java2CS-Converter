@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -53,6 +54,9 @@ public class Mainframe extends JFrame implements ActionListener {
     private JPanel centerCenterCenterPnl;
     private JPanel centerCenterTopPnl;
     
+    private ImageIcon background = new ImageIcon("res/logo.png");
+    private JLabel label = new JLabel();
+    
     public Mainframe(){
         main.setBorder(new EmptyBorder(15,20,15,20));
         this.add(main);
@@ -88,7 +92,11 @@ public class Mainframe extends JFrame implements ActionListener {
         main.add(area,BorderLayout.NORTH);
         main.add(centerpanel,BorderLayout.CENTER);
         main.add(bottomPnl,BorderLayout.SOUTH);
+        
         centerpanel.setLayout(null);
+        label.setBounds(-20, -68, 645, 500);
+        label.setIcon(background);
+        centerpanel.add(label);
         centerpanel.add(b1);
         centerpanel.add(b2);
         b1.setBounds(400, 120, 150, 30);
