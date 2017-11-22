@@ -24,16 +24,17 @@ public class Mainframe extends JFrame implements ActionListener {
     private JMenu mnuF = new JMenu("File");
     private JMenu mnuH = new JMenu("Help");
     private JMenu mnuC = new JMenu("Credits");
-    private JMenuItem itmC = new JMenuItem("Class");
-    private JMenuItem itmS = new JMenuItem("String");
+    private JMenuItem itmC = new JMenuItem("Convert Class");
+    private JMenuItem itmS = new JMenuItem("Translate Snippet");
     private JMenuItem itmy = new JMenuItem("Youssef Khaled");
     private JMenuItem itmm = new JMenuItem("Mohamed El Ghamry");
     private JMenuItem itmma = new JMenuItem("Mariam Ahmed");
+    private JCheckBox box = new JCheckBox("Sounds");
     private JMenuItem itma = new JMenuItem("Ali Mohamed Ali");
     private JMenuItem itmay = new JMenuItem("Aya Mohamed Samir");
     private JMenuItem itmh = new JMenuItem("Mostafa Hazem");
     private JButton b1 = new JButton("Convert Class");
-    private JButton b2 = new JButton("Convert String");
+    private JButton b2 = new JButton("Translate Snippet");
     private JButton back = new JButton("back");   
     private JButton back2 = new JButton("back");
     private JPanel main =new JPanel();
@@ -85,7 +86,6 @@ public class Mainframe extends JFrame implements ActionListener {
         main.removeAll();
         
         JPanel centerpanel = new JPanel();
-        JCheckBox box = new JCheckBox("Sounds");
         JTextArea area = new JTextArea("J2CS Converter is a Windows program which accurately converts Java code to C#. It makes it possible\nto translate java class/string into Visual Studio C# class/string.");
         this.setTitle("J2CS Converter");
         main.setLayout(new BorderLayout());
@@ -125,6 +125,8 @@ public class Mainframe extends JFrame implements ActionListener {
         back2.addActionListener(this);
         b1.addActionListener(this);
         b2.addActionListener(this);
+        itmC.addActionListener(this);
+        itmS.addActionListener(this);
         
         main.repaint();
         main.validate();
@@ -270,6 +272,12 @@ public class Mainframe extends JFrame implements ActionListener {
             Mainmenu();
         }
         else if(o==b2){
+            snippetTranslator();
+        }
+        else if(o==itmC){
+            classTranslator();
+        }
+        else if(o==itmS){
             snippetTranslator();
         }
     }
