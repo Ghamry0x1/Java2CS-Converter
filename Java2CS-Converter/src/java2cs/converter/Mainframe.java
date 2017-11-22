@@ -37,10 +37,7 @@ public class Mainframe extends JFrame implements ActionListener {
     private JButton back2 = new JButton("back");
     private JPanel main =new JPanel();
     private JPanel bottomPnl = new JPanel();
-    private JTextArea area2 = new JTextArea("This disclaimer informs users that"
-            + " the views, thoughts, and\nopinions expressed in the app belong "
-            + "solely to iONEX Group.");
-    
+    private JTextArea area2 = new JTextArea("This disclaimer informs users that the views, thoughts, and\nopinions expressed in the app belong solely to iONEX Group.");
     private JPanel topPnl;
     private JPanel centerPnl;
     private JPanel centerBottomPnl;
@@ -82,8 +79,7 @@ public class Mainframe extends JFrame implements ActionListener {
 
     public void Mainmenu() {
         main.removeAll();
-        b1.addActionListener(this);
-        b2.addActionListener(this);
+        
         JPanel centerpanel = new JPanel();
         JCheckBox box = new JCheckBox("Sounds");
         JTextArea area = new JTextArea("J2CS Converter is a Windows program which accurately converts Java code to C#. It makes it possible\nto translate java class/string into Visual Studio C# class/string.");
@@ -98,6 +94,7 @@ public class Mainframe extends JFrame implements ActionListener {
         b1.setBounds(400, 120, 150, 30);
         b2.setBounds(400, 220, 150, 30);
         
+        //adding to bottomPnl
         bottomPnl.setLayout(new BorderLayout());
         bottomPnl.add(box,BorderLayout.WEST);
         bottomPnl.add(area2,BorderLayout.EAST);
@@ -118,19 +115,21 @@ public class Mainframe extends JFrame implements ActionListener {
         //adding actionListeners
         back.addActionListener(this);
         back2.addActionListener(this);
+        b1.addActionListener(this);
+        b2.addActionListener(this);
         
         main.repaint();
         main.validate();
     }
     
-    public void ClassConverter(){
+    public void classTranslator(){
         main.removeAll();
         main.repaint();
         main.validate();
         
         JLabel area = new JLabel("Class Translator");
-        JPanel p1 = new JPanel(); //a1 - path1 - b1
-        JPanel p2 = new JPanel(); //a2 - path2 - b2
+        JPanel p1 = new JPanel();
+        JPanel p2 = new JPanel();
         JPanel p3 = new JPanel();
         JPanel center = new JPanel(new GridLayout(3,0));
         JLabel a1 = new JLabel("Source :");
@@ -181,7 +180,7 @@ public class Mainframe extends JFrame implements ActionListener {
         main.validate();
     }
     
-    public void StringConverter(){
+    public void snippetTranslator(){
         main.removeAll();
         main.repaint();
         main.validate();
@@ -250,7 +249,7 @@ public class Mainframe extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object o = e.getSource();
         if(o==b1){
-            ClassConverter();
+            classTranslator();
         }
         else if(o==back){
             bottomPnl.remove(back);
@@ -263,7 +262,7 @@ public class Mainframe extends JFrame implements ActionListener {
             Mainmenu();
         }
         else if(o==b2){
-            StringConverter();
+            snippetTranslator();
         }
     }
     
